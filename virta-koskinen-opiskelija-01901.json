@@ -1,0 +1,17 @@
+{
+  "Opiskelijat": {
+    "Opiskelija": [
+      {
+        "avain": "73069557",
+        "Henkilotunnus": "090888-929X",
+        "Sukunimi": "Koskinen",
+        "Etunimet": "Harri",
+        "Sukupuoli": "1",
+        "Kansalaisuus": "246",
+        "Aidinkieli": "sv",
+        "Asuinkunta": "599",
+        "KirjoihintuloPvm": "2009-08-01"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+.osaamiseni-title {
+  background: #136085;
+  color: #FFFFFF;
+}
+
+.osaamiseni-head {
+  background: #FFFFFF;
+}
+.osaamiseni-head-head-text {
+  color: #136085;
+}
+
+.osaamiseni-content {
+  background: #FFFFFF;
+}
+.osaamiseni-content-head {
+  background: #FFFFFF;
+}
+.osaamiseni-content-head-text {
+  font-size: 150%;
+  font-weight: bold;
+  color: #F06C30;
+}
+.osaamiseni-content-body {
+  //border: 1px dotted lightgray;
+}
+.osaamiseni-content-body-text {
+  font-size: 100%;
+  font-weight: normal;
+}
+.osaamiseni-content-suoritus {
+  padding:1ch;
+  margin:0ch;
+  // border-left:1px solid lightgray;
+}
+
+.osaamiseni-info {
+}
+.osaamiseni-info-head-text {
+  font-size: 125%;
+  font-weight: bold;
+  color: #F06C30;
+}
+.osaamiseni-info-body-text {
+  font-size: 100%;
+  font-weight: normal;
+}
