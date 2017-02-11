@@ -4,10 +4,8 @@
 }
 
 .osaamiseni-head {
-  background: #FFFFFF;
-}
-.osaamiseni-head-head-text {
-  color: #136085;
+  background: #136085;
+  color: #FFFFFF;
 }
 
 .osaamiseni-content {
@@ -15,6 +13,7 @@
 }
 .osaamiseni-content-head {
   background: #FFFFFF;
+  margin-top: 40px;
 }
 .osaamiseni-content-head-text {
   font-size: 150%;
@@ -28,6 +27,12 @@
   font-size: 100%;
   font-weight: normal;
 }
+.osaamiseni-content-box {
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px dotted lightgray;
+}
+
 .osaamiseni-content-suoritus {
   padding:1ch;
   margin:0ch;
