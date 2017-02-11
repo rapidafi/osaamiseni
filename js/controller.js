@@ -13,8 +13,8 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   * - tehdään VIRTA-datan Opintosuoritus.Nimi -tiedosta yhdenmukainen kieliversioitu Nimi-objekti
   * - JSON tulkkaus XML:stä johtaa välillä Array-muuttujaan ja välillä ei. Tämä funktio huolehtii tästä.
   */
-  var makeSuoritusNimi = function(nimiObj) {
-    var ret = [];
+  let makeSuoritusNimi = function(nimiObj) {
+    let ret = [];
     if (angular.isArray(nimiObj)) {
       angular.forEach(nimiObj, function(nobj,nkey){
         if(nobj.kieli){
@@ -62,8 +62,8 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   * makeSuoritusObj
   * - tee yhden opintosuorituksen objekti ja palauta se
   */
-  var makeSuoritusObj = function(sobj) {
-    var obj = {}
+  let makeSuoritusObj = function(sobj) {
+    let obj = {}
     obj.avain = sobj.avain;
     obj.opiskeluoikeusavain = sobj.opiskeluoikeusAvain;
     obj.Laji = sobj.Laji;
@@ -93,41 +93,36 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   * - Tee yksi toivomamme näköinen Opintosuoritus-objekti saadusta VIRTA-datan
   *   Opintosuoritus-elementistä, joka on muutettu myös XML -> JSON.
   */
-  var getOpintosuoritusObj = function(avain) {
-    var obj = {};
+  let getOpintosuoritusObj = function(avain) {
+    let obj = {};
     angular.forEach(kaikkidata.Virta.Opiskelija, function(pobj,pkey){
       angular.forEach(pobj.Opintosuoritukset.Opintosuoritus, function(sobj,skey){
-        //if (sobj.Myontaja==organisaatio) {
-          if(sobj.avain==avain){
-            //console.log("Opintosuoritus.avain="+sobj.avain+" laji="+sobj.Laji);
-            obj = makeSuoritusObj(sobj);
-          }
-        //}
+        if(sobj.avain==avain){
+          obj = makeSuoritusObj(sobj);
+        }
       });
     });
     return obj;
   }
-  var populateSuoritustree = function() {
+  let populateSuoritustree = function() {
     angular.forEach(kaikkidata.Virta.Opiskelija, function(pobj,pkey){
       angular.forEach(pobj.Opintosuoritukset.Opintosuoritus, function(sobj,skey){
-        //if (sobj.Myontaja==organisaatio) {
-          if(sobj.Laji=="1"){
-            var obj = makeSuoritusObj(sobj);
-            $scope.suoritustree.push(obj);
-          }
-        //}
+        if(sobj.Laji=="1"){
+          let obj = makeSuoritusObj(sobj);
+          $scope.suoritustree.push(obj);
+        }
       });
     });
     // kokonaisuudet
-    for(var i=0; i<$scope.suoritustree.length; i++){
-      for(var j=0; j<$scope.suoritustree[i].Sisaltyvyys.length; j++){
-        var obj = getOpintosuoritusObj($scope.suoritustree[i].Sisaltyvyys[j]);
+    for(let i=0; i<$scope.suoritustree.length; i++){
+      for(let j=0; j<$scope.suoritustree[i].Sisaltyvyys.length; j++){
+        let obj = getOpintosuoritusObj($scope.suoritustree[i].Sisaltyvyys[j]);
         $scope.suoritustree[i].nodes.push(obj);
       }
       // suoritukset
-      for(var k=0; k<$scope.suoritustree[i].nodes.length; k++){
-        for(var l=0; l<$scope.suoritustree[i].nodes[k].Sisaltyvyys.length; l++){
-          var obj = getOpintosuoritusObj($scope.suoritustree[i].nodes[k].Sisaltyvyys[l]);
+      for(let k=0; k<$scope.suoritustree[i].nodes.length; k++){
+        for(let l=0; l<$scope.suoritustree[i].nodes[k].Sisaltyvyys.length; l++){
+          let obj = getOpintosuoritusObj($scope.suoritustree[i].nodes[k].Sisaltyvyys[l]);
           $scope.suoritustree[i].nodes[k].nodes.push(obj);
         }
       }
@@ -137,42 +132,12 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   //
   // SCOPE FUNKTIOT
   //
-  $scope.useOpiskeluoikeus = function(avain) {
-    console.log("useOpiskeluoikeus "+avain);
-    //if(!avain) return;
-    $scope.tutkinnot = [];
-    $scope.kokonaisuudet = [];
-    $scope.opintosuoritukset = [];
-    angular.forEach(kaikkidata.Virta.Opiskelija, function(pobj,pkey){
-      angular.forEach(pobj.Opintosuoritukset.Opintosuoritus, function(sobj,skey){
-        //if (sobj.Myontaja==organisaatio) {
-          //console.log("Opintosuoritus.avain="+sobj.avain+" laji="+sobj.Laji);
-          var obj = makeSuoritusObj(sobj);
-          if(!avain || avain==sobj.opiskeluoikeusAvain){
-            if(sobj.Laji=="1"){
-              $scope.tutkinnot.push(obj);
-            }
-            if(sobj.Laji=="2"){
-              if(sobj.Sisaltyvyys){
-                $scope.kokonaisuudet.push(obj);
-              } else {
-                $scope.opintosuoritukset.push(obj);
-              }
-            }
-          }
-        //}
-      });
-    });
-  }
-
   $scope.useTutkinto = function(avain) {
-    var obj = [];
-    for(var i=0; i<$scope.suoritustree.length; i++){
-      if($scope.suoritustree[i].avain==avain){
-        obj=$scope.suoritustree[i].nodes;
-      }
-    }
-    return obj;
+    console.log("useTutkinto "+avain)
+  }
+  
+  $scope.usePatevyys = function(avain) {
+    console.log("usePatevyys "+avain)
   }
 
   //
@@ -186,7 +151,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   $scope.i18n = i18n;
   $scope.osaamiseniuri = osaamiseniuri;
 
-  // autentokoitu käyttäjä
+  // autentikoitu käyttäjä
   // - organisaatio: muuttujaa käytetään useassa paikassa!
   // - kansallinenOppijanumero ja henkilotunnus: muuttujia käytetään alla!
   $scope.oppilaitos = {
@@ -201,7 +166,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   });
 
   // säilötään virrasta saatu kaikkitiedot data
-  var kaikkidata = null;
+  let kaikkidata = null;
 
   $scope.opiskeluoikeudet = [];
   $scope.opiskeluoikeudet.push({Koulutus: {fi:'Ei valintaa',sv:'*SV*Ei valintaa',en:'Blank'}, koulutusmoduulitunniste: '--'});
@@ -233,7 +198,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
         if (oobj.Myontaja==organisaatio) {
           // tutkinto-opiskeluoikeustyyppi
           if(oobj.avain && ["1","2","3","4","5"].indexOf(oobj.Tyyppi)!==-1){
-            var obj = {};
+            let obj = {};
             obj.avain = oobj.avain;
             obj.Tyyppi = oobj.Tyyppi;
             obj.AlkuPvm = oobj.AlkuPvm;
@@ -260,7 +225,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
       angular.forEach(pobj.Opintosuoritukset.Opintosuoritus, function(sobj,skey){
         //if (sobj.Myontaja==organisaatio) {
           angular.forEach(sobj.Patevyys, function(qobj,qkey){
-            var obj = {};
+            let obj = {};
             obj.Koodi = qobj;
             obj.SuoritusPvm = new Date(sobj.SuoritusPvm);
             Koodisto.callKoodisto($http,'virtapatevyys',qobj).success(function(data) {
@@ -276,7 +241,25 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
       });
     });
     populateSuoritustree();
-    $scope.useOpiskeluoikeus();
+    //
+    $scope.tutkinnot = [];
+    $scope.kokonaisuudet = [];
+    $scope.opintosuoritukset = [];
+    angular.forEach(kaikkidata.Virta.Opiskelija, function(pobj,pkey){
+      angular.forEach(pobj.Opintosuoritukset.Opintosuoritus, function(sobj,skey){
+        let obj = makeSuoritusObj(sobj);
+        if(sobj.Laji=="1"){
+          $scope.tutkinnot.push(obj);
+        }
+        if(sobj.Laji=="2"){
+          if(sobj.Sisaltyvyys){
+            $scope.kokonaisuudet.push(obj);
+          } else {
+            $scope.opintosuoritukset.push(obj);
+          }
+        }
+      });
+    });
   });
 
 }]);
