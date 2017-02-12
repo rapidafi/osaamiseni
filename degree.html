@@ -106,15 +106,15 @@
         <h4>Tutkinnon sisältö</h4>
 <!-- -->
     <div class="row">
-      <div class="col-xs-12 col-md-8 suoritusote-content-body" style="font-size:smaller; margin-bottom:10px;">
+      <div class="col-xs-12 col-md-8" style="font-size:smaller; margin-bottom:10px;">
         <div data-ng-repeat="k in suoritustree[1].nodes">
-          <div class="suoritusote-content-head-text" style="cursor:pointer;" data-ng-model="div_kok$index" data-ng-click="kok$index=!kok$index;">
+          <div style="cursor:pointer;" data-ng-model="div_kok$index" data-ng-click="kok$index=!kok$index;">
             {{k.Nimi[lang]}} ({{k.Laajuus.Opintopiste}} op)
             <!-- {{k.SuoritusPvm.toLocaleString('fi-FI',{year:'numeric',month:'numeric',day:'numeric'})}} -->
           </div>
           <ul style="list-style:none; padding-left:2ch;">
             <li data-ng-repeat="s in k.nodes" data-ng-show="kok$index" style="padding:0px; spacing:0ch;">
-              <div class="suoritusote-content-suoritus">
+              <div>
                 {{s.Nimi[lang]}} ({{s.Laajuus.Opintopiste}} op) <!-- {{s.SuoritusPvm.toLocaleString('fi-FI',{year:'numeric',month:'numeric',day:'numeric'})}} -->
                 <!-- span data-ng-bind="s.koulutusmoduulitunniste"></span -->
               </div>
