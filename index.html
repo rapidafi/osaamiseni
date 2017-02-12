@@ -36,6 +36,8 @@
 <script src="js/service.js"></script>
 <script src="js/controller.js"></script>
 
+<script src="js/media.js"></script>
+
 <script src="js/dev-auth.js"></script>
 
 <link rel="stylesheet" href="css/main.css">
@@ -90,7 +92,8 @@
     </div>
     <div class="row osaamiseni-content-body">
       <div class="col-xs-3" data-ng-repeat="o in patevyydet">
-        <div class="osaamiseni-content-box" data-ng-click="usePatevyys(o.avain)">
+        <div class="osaamiseni-content-box" data-ng-style="media[o.Myontajakoodi].css" data-ng-click="usePatevyys(o.avain)">
+          <img data-ng-src="images/{{media[o.Myontajakoodi].logo}}" style="max-height:60px" class="pull-left">
           <h3 data-ng-bind="(o.Myontaja[lang]).capitalizeFirstLetter()"></h3>
           <h4 data-ng-bind="(o.Patevyys[lang]).capitalizeFirstLetter()"></h4>
           <!-- span data-ng-bind="o.SuoritusPvm.toLocaleString('fi-FI',{year:'numeric',month:'numeric',day:'numeric'})"></span -->
@@ -108,7 +111,8 @@
     </div>
     <div class="row osaamiseni-content-body">
       <div class="col-xs-3" data-ng-repeat="o in tutkinnot">
-        <div class="osaamiseni-content-box" data-ng-click="useTutkinto(o.avain)">
+        <div class="osaamiseni-content-box" data-ng-style="media[o.Myontajakoodi].css" data-ng-click="useTutkinto(o.avain)">
+          <img data-ng-src="images/{{media[o.Myontajakoodi].logo}}" style="max-height:60px" class="pull-left">
           <h3 data-ng-bind="(o.Myontaja[lang]).capitalizeFirstLetter()"></h3>
           <h4 data-ng-bind="(o.Nimi[lang]).capitalizeFirstLetter()"></h4>
           <!-- span data-ng-bind="o.SuoritusPvm.toLocaleString('fi-FI',{year:'numeric',month:'numeric',day:'numeric'})"></span -->

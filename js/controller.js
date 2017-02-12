@@ -78,7 +78,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
       });
     }
     obj.Kiinnitetty = true; //getKiinnitetty(obj.avain);
-    obj.MyontajaKoodi = sobj.Myontaja;
+    obj.Myontajakoodi = sobj.Myontaja;
     Koodisto.callKoodisto($http,'oppilaitosnumero',sobj.Myontaja).success(function(data) {
       obj.Myontaja = Koodisto.getKoodiSeliteObj(data);
     });
@@ -150,6 +150,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   $scope.lang = lang;
   $scope.i18n = i18n;
   $scope.osaamiseniuri = osaamiseniuri;
+  $scope.media = media;
 
   // autentikoitu käyttäjä
   // - organisaatio: muuttujaa käytetään useassa paikassa!
@@ -231,7 +232,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
             Koodisto.callKoodisto($http,'virtapatevyys',qobj).success(function(data) {
               obj.Patevyys = Koodisto.getKoodiSeliteObj(data);
             });
-            obj.MyontajaKoodi = sobj.Myontaja;
+            obj.Myontajakoodi = sobj.Myontaja;
             Koodisto.callKoodisto($http,'oppilaitosnumero',sobj.Myontaja).success(function(data) {
               obj.Myontaja = Koodisto.getKoodiSeliteObj(data);
             });
