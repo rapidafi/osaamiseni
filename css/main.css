@@ -42,3 +42,13 @@
   margin:0ch;
   // border-left:1px solid lightgray;
 }
+
+.osaamiseni-degree-body {
+  color: #5555ff;
+}
+.osaamiseni-degree-menu {
+  background: #eeeeff;
+}
+.osaamiseni-degree-content {
+  background: #ffffff;
+}

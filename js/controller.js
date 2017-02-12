@@ -9,6 +9,25 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
   //
 
   /**
+  * makeSuoritusArvosana
+  * - tehdään VIRTA-datan Opintosuoritus.Arvosana -tiedosta yhdenmukainen kieliversioitu Arvosana-objekti
+  */
+  let makeSuoritusArvosana = function(arvoObj) {
+    let ret = {};
+    if(arvoObj.Muu){
+      ret['Asteikko'] = 'Muu';
+      ret['Arvosana'] = arvoObj.Muu.Asteikko.avain;
+    } else { // oletus
+      ret['Asteikko'] = Object.keys(arvoObj)[0];
+      ret['Arvosana'] = Object.values(arvoObj)[0];
+      if(arvoObj.Viisiportainen){
+        ret['Arvosana'] += '/5';
+      }
+    }
+    return ret;
+  }
+
+  /**
   * makeSuoritusNimi
   * - tehdään VIRTA-datan Opintosuoritus.Nimi -tiedosta yhdenmukainen kieliversioitu Nimi-objekti
   * - JSON tulkkaus XML:stä johtaa välillä Array-muuttujaan ja välillä ei. Tämä funktio huolehtii tästä.
@@ -71,6 +90,7 @@ function($scope,$http,$sanitize,VIRTA,Koodisto)
     obj.Laajuus = sobj.Laajuus;
     obj.Laajuus.Opintopiste = parseFloat(obj.Laajuus.Opintopiste).toFixed(1).replace(".",",");
     obj.Nimi = makeSuoritusNimi(sobj.Nimi);
+    obj.Arvosana = makeSuoritusArvosana(sobj.Arvosana);
     obj.Sisaltyvyys = [];
     if(sobj.Sisaltyvyys){
       angular.forEach(sobj.Sisaltyvyys, function(ss,sskey){
