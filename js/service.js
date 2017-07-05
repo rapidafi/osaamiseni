@@ -51,11 +51,12 @@ rapidApp.service('KoodistoService', ['$http', function($http) {
     }
     console.log("callKoodisto: "+koodisto+" "+arvo);
     this.callcache[koodisto][arvo] = {};
-    this.callcache[koodisto][arvo] = $http.get(opintopolkuuri+"/"+koodisto+"/koodi/"+koodisto+"_"+arvo);
+    this.callcache[koodisto][arvo] = $http.get(opintopolkuuri+"&codeset="+koodisto+"&code="+arvo);
     return this.callcache[koodisto][arvo];
   }
   // palauta metadatan nimi-tiedot (selitteet) callKoodisto-funktion success data-objektista
   this.getKoodiSeliteObj = function(data) {
+    if (angular.isArray(data)) data = data[0]; // unarray
     var selite = {};
     selite['fi'] = getLanguageSpecificValueOrValidValue(data.metadata,"nimi","FI");
     selite['sv'] = getLanguageSpecificValueOrValidValue(data.metadata,"nimi","SV");
