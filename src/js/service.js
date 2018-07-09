@@ -11,11 +11,11 @@ rapidApp.service('VIRTAService', ['$http', function($http) {
     if (kansallinenOppijanumero) {
       return $http
       //.get(osaamiseniuri+'/virta-pg-soap.php?rajapinta=OpiskelijanKaikkiTiedot&kansallinenOppijanumero='+kansallinenOppijanumero+"&organisaatio="+organisaatio)
-      .get('virta-koskinen-kaikki.json');
+      .get('demo/virta-koskinen-kaikki.json');
     } else if (henkilotunnus) {
       return $http
       //.get(osaamiseniuri+'/virta-pg-soap.php?rajapinta=OpiskelijanKaikkiTiedot&henkilotunnus='+henkilotunnus+"&organisaatio="+organisaatio)
-      .get('virta-koskinen-kaikki.json');
+      .get('demo/virta-koskinen-kaikki.json');
     }
   }
 
@@ -26,11 +26,11 @@ rapidApp.service('VIRTAService', ['$http', function($http) {
     if (kansallinenOppijanumero) {
       return $http
       //.get(osaamiseniuri+'/virta-pg-soap.php?rajapinta=OpiskelijanTiedot&kansallinenOppijanumero='+kansallinenOppijanumero+"&organisaatio="+organisaatio)
-      .get('virta-koskinen-opiskelija-01901.json');
+      .get('demo/virta-koskinen-opiskelija-01901.json');
     } else if (henkilotunnus) {
       return $http
       //.get(osaamiseniuri+'/virta-pg-soap.php?rajapinta=OpiskelijanTiedot&henkilotunnus='+henkilotunnus+"&organisaatio="+oppilaitos)
-      .get('virta-koskinen-opiskelija-01901.json');
+      .get('demo/virta-koskinen-opiskelija-01901.json');
     }
   }
 }]);

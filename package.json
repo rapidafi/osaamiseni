@@ -1,0 +1,30 @@
+{
+  "name": "osaamiseni",
+  "version": "0.0.0",
+  "description": "Osaamiseni -- Osaamisportfolio",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rapida / Lauri Jokipii",
+  "repository": "https://github.com/rapidafi/osaamiseni",
+  "license": "EUPL-1.1",
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-usemin": "3.1.0",
+    "load-grunt-tasks": "3.5.2",
+    "time-grunt": "1.4.0"
+  },
+  "dependencies": {
+    "@bower_components/angular": "angular/bower-angular#1.5.8",
+    "@bower_components/angular-animate": "angular/bower-angular-animate#1.5.8",
+    "@bower_components/angular-sanitize": "angular/bower-angular-sanitize#1.5.8",
+    "@bower_components/angular-ui-select": "angular-ui/ui-select#0.19.4",
+    "@bower_components/bootstrap-css": "jozefizso/bower-bootstrap-css#3.3.7"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  }
+}

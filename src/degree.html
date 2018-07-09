@@ -6,40 +6,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" -->
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<!-- angularjs -->
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<!-- script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script -->
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
-
-<!-- ui-select files -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.19.4/select.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.19.4/select.min.css">
-
-<!-- angular-ui-tree -->
-<!-- script src="angular-ui-tree.min.js"></script>
-<link rel="stylesheet" href="angular-ui-tree.min.css" -->
-
+<!-- build:js js/vendor.js -->
+<script src="../node_modules/@bower_components/angular/angular.min.js"></script>
+<script src="../node_modules/@bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../node_modules/@bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../node_modules/@bower_components/angular-ui-select/dist/select.min.js"></script>
+<!-- endbuild -->
+<!-- build:js js/app.js -->
 <script src="js/config.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/utility.js"></script>
 <script src="js/service.js"></script>
 <script src="js/controller.js"></script>
-
 <script src="js/media.js"></script>
+<!-- endbuild -->
+<!--demo-->
+<script src="demo/dev-auth.js"></script>
+<!--enddemo-->
 
-<script src="js/dev-auth.js"></script>
-
+<!-- build:css css/vendor.css -->
+<link rel="stylesheet" href="../node_modules/@bower_components/bootstrap-css/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/@bower_components/angular-ui-select/dist/select.min.css">
+<!-- endbuild -->
 <link rel="stylesheet" href="css/main.css">
 
 <title>{{i18n.app.name[lang]}}</title>
