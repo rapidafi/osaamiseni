@@ -1,5 +1,7 @@
 ### OSAAMISENI
 
+(aka. Osaamisportfolio)
+
 A view to achievements in higher education.
 
 #### Frontend

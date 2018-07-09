@@ -1,7 +1,7 @@
 {
   "name": "osaamiseni",
   "version": "0.0.0",
-  "description": "Osaamiseni -- Osaamisportfolio",
+  "description": "Osaamiseni -- osaamisportfolio",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
